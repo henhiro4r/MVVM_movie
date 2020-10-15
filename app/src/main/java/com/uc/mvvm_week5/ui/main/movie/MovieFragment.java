@@ -5,6 +5,10 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
@@ -12,10 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.uc.mvvm_week5.R;
 import com.uc.mvvm_week5.model.Movie;
 import com.uc.mvvm_week5.ui.splash.SplashFragmentDirections;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +36,8 @@ public class MovieFragment extends Fragment {
 
     @BindView(R.id.btn_to_detail)
     Button button;
+
+    private MovieViewModel viewModel;
 
     public MovieFragment() {
         // Required empty public constructor
@@ -47,6 +56,10 @@ public class MovieFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
+
+        viewModel = ViewModelProviders.of(requireActivity()).get(MovieViewModel.class);
+        viewModel.getMovieCollection().observe(requireActivity(),observeViewModel);
+
         Movie movie = new Movie();
 
         //view1 cuma penamaan saja, bisa v juga
@@ -55,4 +68,18 @@ public class MovieFragment extends Fragment {
             Navigation.findNavController(view).navigate(action);
         });
     }
+
+    //klo mau jadi Lambda (Lambda itu ->) di alt enter tulisan abu"nya
+    private Observer<List<Movie>> observeViewModel = movies -> {
+        if (movies !=null){
+            Movie movie = movies.get(0);
+            button.setText(movie.getTitle());
+            Toast.makeText(requireActivity(),movie.getTitle(),Toast.LENGTH_SHORT).show();;
+            //set adapter
+//                adapter.setMovies(movies);
+//                adapter.notifySetDataChanged();
+//                recyclerView.setAdapter(adapter);
+            // add adapter to recycleview
+        }
+    };
 }
