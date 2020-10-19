@@ -14,4 +14,6 @@ public interface ApiEndPoints {
 
 //    @GET("movie/{movie_id}")
 //    Call<MovieResponse> getDetailMovie(@Path("movie_id") int movieId, @Query("api_key") String apiKey);
+
+
 }

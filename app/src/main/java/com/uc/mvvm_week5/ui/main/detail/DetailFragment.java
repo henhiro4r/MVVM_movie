@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 // */
 public class DetailFragment extends Fragment {
 
-    @BindView(R.id.btn_to_movie)
+//    @BindView(R.id.btn_to_movie)
     Button button;
 
     public DetailFragment() {
@@ -45,10 +45,10 @@ public class DetailFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         //view1 cuma penamaan saja, bisa v juga
-        button.setOnClickListener(view1 -> {
-            //penamaan sesuai graph action, disini manggil by id panah yg udh kita kasih
-            NavDirections action = DetailFragmentDirections.actionMovie();
-            Navigation.findNavController(view).navigate(action);
-        });
+//        button.setOnClickListener(view1 -> {
+//            //penamaan sesuai graph action, disini manggil by id panah yg udh kita kasih
+//            NavDirections action = DetailFragmentDirections.actionMovie();
+//            Navigation.findNavController(view).navigate(action);
+//        });
     }
 }

@@ -63,10 +63,10 @@ public class MovieFragment extends Fragment {
         Movie movie = new Movie();
 
         //view1 cuma penamaan saja, bisa v juga
-        button.setOnClickListener(view1 -> {
-            NavDirections action = MovieFragmentDirections.actionDetailFragment(movie);
-            Navigation.findNavController(view).navigate(action);
-        });
+//        button.setOnClickListener(view1 -> {
+//            NavDirections action = MovieFragmentDirections.actionMovieToDetail(movie);
+//            Navigation.findNavController(view).navigate(action);
+//        });
     }
 
     //klo mau jadi Lambda (Lambda itu ->) di alt enter tulisan abu"nya

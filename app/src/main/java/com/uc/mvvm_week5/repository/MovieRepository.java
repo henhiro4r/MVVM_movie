@@ -18,23 +18,23 @@ import retrofit2.Response;
 
 public class MovieRepository {
     private static MovieRepository movieRepository;
-    private ApiEndPoints apiEndPoints;
+    private RetrofitService service;
     private static final String TAG = "MovieRepository";
 
-    public MovieRepository(ApiEndPoints apiEndPoints) {
-        this.apiEndPoints = apiEndPoints;
+    private MovieRepository() {
+        service = RetrofitService.getInstance();
     }
 
     public static MovieRepository getInstance(){
         if (movieRepository == null){
-            movieRepository = new MovieRepository(RetrofitService.createService(ApiEndPoints.class));
+            movieRepository = new MovieRepository();
         }
         return movieRepository;
     }
     public MutableLiveData<List<Movie>> getMovieColection(){
         MutableLiveData<List<Movie>> listMovie = new MutableLiveData<>();
         
-        apiEndPoints.getMovies(Constans.API_KEY).enqueue(new Callback<MovieResponse>() {
+        service.getMovies().enqueue(new Callback<MovieResponse>() {
             @Override
             public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                 if (response.isSuccessful()){
