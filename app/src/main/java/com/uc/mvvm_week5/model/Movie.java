@@ -6,22 +6,27 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 
 public class Movie implements Parcelable {
+
+    @SerializedName("id")
+    private String id_movie;
     @SerializedName("popularity")
     private String popularity;
-    @SerializedName("poster")
+    @SerializedName("poster_path")
     private String poster;
-    @SerializedName("cover")
+    @SerializedName("backdrop_path")
     private String cover;
     @SerializedName("title")
     private String title;
-    @SerializedName("description")
+    @SerializedName("overview")
     private String description;
-    @SerializedName("releaseDate")
+    @SerializedName("release_date")
     private String releaseDate;
+
 
     public Movie(){}
 
-    public Movie(String popularity, String poster, String cover, String title, String description, String releaseDate) {
+    public Movie(String id_movie, String popularity, String poster, String cover, String title, String description, String releaseDate) {
+        this.id_movie = id_movie;
         this.popularity = popularity;
         this.poster = poster;
         this.cover = cover;
@@ -31,6 +36,7 @@ public class Movie implements Parcelable {
     }
 
     protected Movie(Parcel in) {
+        id_movie = in.readString();
         popularity = in.readString();
         poster = in.readString();
         cover = in.readString();
@@ -50,6 +56,14 @@ public class Movie implements Parcelable {
             return new Movie[size];
         }
     };
+
+    public String getId_movie() {
+        return id_movie;
+    }
+
+    public void setId_movie(String id_movie) {
+        this.id_movie = id_movie;
+    }
 
     public String getPopularity() {
         return popularity;
@@ -106,6 +120,7 @@ public class Movie implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id_movie);
         dest.writeString(popularity);
         dest.writeString(poster);
         dest.writeString(cover);

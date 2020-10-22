@@ -41,7 +41,12 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="movie"
-            app:argType="com.uc.mvvm_week5.model.Movie" />
+            app:argType="com.uc.mvvm_week5.model.Movie"
+            app:nullable="true" />
+        <argument
+            android:name="tvshow"
+            app:argType="com.uc.mvvm_week5.model.TvShow"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

@@ -1,7 +1,10 @@
 package com.uc.mvvm_week5.network;
 
+import com.uc.mvvm_week5.model.CastResponse;
+import com.uc.mvvm_week5.model.GenreResponse;
 import com.uc.mvvm_week5.model.MovieResponse;
-import com.uc.mvvm_week5.util.Constans;
+import com.uc.mvvm_week5.model.TvShowResponse;
+import com.uc.mvvm_week5.util.Constants;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -23,10 +26,12 @@ public class RetrofitService {
 
     private ApiEndPoints api;
     private static RetrofitService service;
+    private static String TAG = "RetrofitService";
+
 
     private RetrofitService() {
         api = new Retrofit.Builder()
-                    .baseUrl(Constans.BASE_URL)
+                    .baseUrl(Constants.BaseSetting.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(ApiEndPoints.class);
@@ -38,6 +43,19 @@ public class RetrofitService {
         return service;
     }
     public Call<MovieResponse> getMovies(){
-        return api.getMovies(Constans.API_KEY);
+        return api.getMovies (Constants.BaseSetting.API_KEY, Constants.BaseSetting.LANGUAGE);
     }
+    public Call<TvShowResponse> getTvShows() {
+        return api.getTvShows(Constants.BaseSetting.API_KEY, Constants.BaseSetting.LANGUAGE);
+    }
+    public Call<GenreResponse> getGenres(String type, int id) {
+        return api.getGenres(type, id, Constants.BaseSetting.API_KEY);
+    }
+
+    public Call<CastResponse> getCasts(String type, int id) {
+        return api.getCasts(type, id, Constants.BaseSetting.API_KEY);
+    }
+//    public Call<TvShowResponse> getTvShows() {
+//        return api.getTvShows(Constants.API_KEY, Constants.BaseSetting.LANGUAGE);
+//    }
 }

@@ -2,23 +2,28 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".adapter.TvShowAdapter">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="180dp"
-            android:layout_height="300dp">
+            android:layout_width="160dp"
+            android:layout_height="280dp">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/img_tv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -27,6 +32,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
                 tools:src="@drawable/img_box" />
 
             <View
@@ -39,14 +45,16 @@
                 app:layout_constraintStart_toStartOf="@+id/imageView" />
 
             <TextView
-                android:id="@+id/text_title_tv"
+                android:id="@+id/cast_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/mukta_reguler"
                 android:text="TextView"
                 android:textAlignment="center"
+                android:textColor="@color/pink2"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/divider"
@@ -54,31 +62,21 @@
                 app:layout_constraintTop_toTopOf="@+id/divider" />
 
             <TextView
-                android:id="@+id/text_date_tv"
+                android:id="@+id/cast_role"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/mukta_reguler"
                 android:text="TextView"
                 android:textAlignment="center"
+                android:textColor="@color/text1"
+                app:layout_constraintBottom_toBottomOf="@+id/img_tv"
                 app:layout_constraintEnd_toEndOf="@+id/divider"
                 app:layout_constraintStart_toStartOf="@+id/divider"
-                app:layout_constraintTop_toBottomOf="@+id/text_title_tv" />
-
-            <TextView
-                android:id="@+id/text_popular_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimaryDark"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/cast_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

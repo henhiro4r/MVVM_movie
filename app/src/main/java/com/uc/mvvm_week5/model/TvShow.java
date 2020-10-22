@@ -7,22 +7,23 @@ import com.google.gson.annotations.SerializedName;
 
 public class TvShow implements Parcelable {
 
+    @SerializedName("id")
+    private String id_show;
     @SerializedName("popularity")
     private String popularity;
-    @SerializedName("poster")
+    @SerializedName("poster_path")
     private String poster;
-    @SerializedName("cover")
+    @SerializedName("backdrop_path")
     private String cover;
-    @SerializedName("title")
+    @SerializedName("name")
     private String title;
-    @SerializedName("description")
+    @SerializedName("overview")
     private String description;
-    @SerializedName("releaseDate")
+    @SerializedName("release_date")
     private String releaseDate;
 
-    public TvShow(){}
-
-    public TvShow(String popularity, String poster, String cover, String title, String description, String releaseDate) {
+    public TvShow(String id_show, String popularity, String poster, String cover, String title, String description, String releaseDate) {
+        this.id_show = id_show;
         this.popularity = popularity;
         this.poster = poster;
         this.cover = cover;
@@ -31,7 +32,10 @@ public class TvShow implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
+    public TvShow(){}
+
     protected TvShow(Parcel in) {
+        id_show = in.readString();
         popularity = in.readString();
         poster = in.readString();
         cover = in.readString();
@@ -51,6 +55,14 @@ public class TvShow implements Parcelable {
             return new TvShow[size];
         }
     };
+
+    public String getId_show() {
+        return id_show;
+    }
+
+    public void setId_show(String id_show) {
+        this.id_show = id_show;
+    }
 
     public String getPopularity() {
         return popularity;
@@ -100,6 +112,7 @@ public class TvShow implements Parcelable {
         this.releaseDate = releaseDate;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -107,6 +120,7 @@ public class TvShow implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id_show);
         dest.writeString(popularity);
         dest.writeString(poster);
         dest.writeString(cover);

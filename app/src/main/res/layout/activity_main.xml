@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/navView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,12 +22,12 @@
         android:id="@+id/navView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
-        android:background="@color/colorPrimary"
-        app:menu="@menu/nav_menu"/>
+        app:menu="@menu/nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

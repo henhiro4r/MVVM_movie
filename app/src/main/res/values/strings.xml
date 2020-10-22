@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">MVVM_week5</string>
+    <string name="app_name">API Movie</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="to_movie">Movie</string>
     <string name="to_detail">Detail</string>
     <string name="start">Start</string>
-    <string name="tv_shows">tv_shows</string>
-    <string name="movies">movies</string>
+    <string name="tv_shows">TV Shows</string>
+    <string name="movies">Movies</string>
     <string name="logo_title">API Movie</string>
     <string name="add_favorite">Add to favorite</string>
     <string name="popularity">Popularity:</string>

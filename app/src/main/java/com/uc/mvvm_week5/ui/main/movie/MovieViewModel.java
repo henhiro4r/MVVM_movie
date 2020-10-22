@@ -16,6 +16,6 @@ public class MovieViewModel extends ViewModel {
     }
 
     public LiveData<List<Movie>> getMovieCollection(){
-        return repository.getMovieColection();
+        return repository.getMovieCollection();
     }
 }
